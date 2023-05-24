@@ -42,7 +42,7 @@ export default defineComponent({
 
 <style scoped>
 .min-h-calc {
-  min-height: calc(100vh - 80px - 76px - 32px);
+  min-height: calc(100vh - 80px - 76px - 42px);
   height: auto;
 }
 .header-text {
