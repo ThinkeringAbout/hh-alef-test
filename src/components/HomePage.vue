@@ -8,23 +8,16 @@
       {{ info.userData.name }}, {{ info.userData.age }}
       {{ getTransformAge(info.userData.age) }}
     </h2>
-    <h2 v-else class="italic text-[12px] text-slate-400">
-        Информация отсутствует
-    </h2>
+    <h2 v-else class="missing">Информация отсутствует</h2>
     <h1 class="h1 mt-[60px]">Дети</h1>
     <template v-if="info.childrenData.length">
-        <div
-          v-for="child in info.childrenData"
-          class="font-montserrat mb-4 bg-[#F1F1F1] rounded-md w-fit text-[16px] leading-6 font-bold px-4 py-2.5"
-        >
-          <div v-if="child.name && child.age">
-            {{ child.name }}, {{ child.age }} {{ getTransformAge(child.age) }}
-          </div>
+      <div v-for="child in info.childrenData" class="child-info">
+        <div v-if="child.name && child.age">
+          {{ child.name }}, {{ child.age }} {{ getTransformAge(child.age) }}
         </div>
+      </div>
     </template>
-    <h2 v-else class="italic text-[12px] text-slate-400">
-        Информация отсутствует
-    </h2>
+    <h2 v-else class="missing">Информация отсутствует</h2>
   </div>
 </template>
 
@@ -63,3 +56,13 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped>
+.missing {
+  @apply italic text-[12px] text-slate-400;
+}
+
+.child-info {
+  @apply font-montserrat mb-4 bg-[#F1F1F1] rounded-md w-fit text-[16px] leading-6 font-bold px-4 py-2.5;
+}
+</style>

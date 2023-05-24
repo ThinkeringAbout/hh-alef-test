@@ -1,7 +1,7 @@
 <template>
   <form id="form" @submit.prevent.stop="handleSaveClick">
     <Form header="Персональные данные" :is-form-large="true" />
-    <Form header="Дети (макс.5)" :is-form-large="false" />
+    <Form header="Дети (макс. 5)" :is-form-large="false" />
     <PrimaryButton type="submit" class="mt-4" text="Сохранить" />
   </form>
 </template>

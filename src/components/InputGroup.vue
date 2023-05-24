@@ -26,7 +26,17 @@ import Input from "./ui/Input.vue";
 
 export default defineComponent({
   name: "InputGroup",
-  props: ["large", "id", "value"],
+  props: {
+    large: {
+      type: Boolean,
+      required: true,
+    },
+    id: Number,
+    value: {
+      type: Object,
+      required: true,
+    },
+  },
   emits: ["input"],
   components: {
     Input,

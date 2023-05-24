@@ -4,12 +4,11 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import ButtonMixin from "../../mixins/ButtonMixin.vue";
 
 export default defineComponent({
   name: "FlatButton",
-  props: ["text"],
-  emits: ["input"],
-  methods: {},
+  mixins: [ButtonMixin],
 });
 </script>
 

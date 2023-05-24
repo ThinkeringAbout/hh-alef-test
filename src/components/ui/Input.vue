@@ -1,7 +1,7 @@
 <template>
   <div class="relative w-full">
     <input
-      class="input pt-4 peer text-sm appearance-none text-[#111111] placeholder-transparent"
+      class="input peer"
       :class="{ sm_input: !large }"
       :placeholder="placeholder"
       :type="type"
@@ -22,7 +22,28 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "Input",
-  props: ["placeholder", "id", "large", "value", "type"],
+  props: {
+    placeholder: {
+      type: String,
+      required: true,
+    },
+    id: {
+      type: String,
+      required: true,
+    },
+    large: {
+      type: Boolean,
+      required: true,
+    },
+    value: {
+      type: [String, Number],
+      required: true,
+    },
+    type: {
+      type: String,
+      required: true,
+    },
+  },
   emits: ["input"],
   methods: {
     handleInput(event: Event) {
@@ -36,7 +57,7 @@ export default defineComponent({
 
 <style scoped>
 .input {
-  @apply w-full border-2 rounded h-14 border-[#F1F1F1] outline-none hover:shadow-input-shadow transition-all duration-300 px-4;
+  @apply w-full border-2 rounded h-14 border-[#F1F1F1] outline-none hover:shadow-input-shadow transition-all duration-300 px-4 pt-4 text-sm appearance-none text-[#111111] placeholder-transparent;
 }
 
 .input__placeholder {

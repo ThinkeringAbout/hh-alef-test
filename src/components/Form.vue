@@ -12,7 +12,11 @@
       />
     </div>
     <template v-if="isFormLarge">
-      <InputGroup @input="handleNameInput" :value="store.userName" :large="isFormLarge" />
+      <InputGroup
+        @input="handleNameInput"
+        :value="store.userName"
+        :large="isFormLarge"
+      />
     </template>
     <template v-else>
       <InputGroup
@@ -47,7 +51,16 @@ export default defineComponent({
     return { store };
   },
   name: "Form",
-  props: ["header", "isFormLarge"],
+  props: {
+    header: {
+      type: String,
+      required: true,
+    },
+    isFormLarge: {
+      type: Boolean,
+      required: true,
+    },
+  },
   components: {
     InputGroup,
     FlatButton,
@@ -55,13 +68,13 @@ export default defineComponent({
   },
   methods: {
     handleNameInput(type: "name" | "age", value: string) {
-      this.store.changeUserData(type, value)
+      this.store.changeUserData(type, value);
     },
     handleDeleteClick(index: number) {
-      this.store.deleteChildrenData(index)
+      this.store.deleteChildrenData(index);
     },
     handleInput(type: "name" | "age", value: string, id: number) {
-      this.store.changeChildrenData(type, value, id)
+      this.store.changeChildrenData(type, value, id);
     },
     handleAddClick() {
       if (this.store.getChildrenData.length < 5) {
